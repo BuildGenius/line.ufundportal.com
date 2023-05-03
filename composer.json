@@ -1,0 +1,21 @@
+{
+    "name": "phoomin.s/line.ufund",
+    "autoload": {
+        "psr-4": {
+            "PhoominS\\LineUfund\\": "src/",
+            "PhoominS\\LineUfund\\MinimalLine\\": "src/MinimalLine/",
+            "PhoominS\\LineUfund\\Http\\": "src/http",
+            "PhoominS\\LineUfund\\SQL\\": "src/SQL/",
+            "PhoominS\\Models\\": "Models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "phoomin srimahaprom"
+        }
+    ],
+    "require": {
+        "linecorp/line-bot-sdk": "^3.6",
+        "peppeocchi/php-cron-scheduler": "^4.0"
+    }
+}
