@@ -4,6 +4,11 @@ namespace PhoominS\LineUfund\MinimalLine;
 use Exception;
 
 class reply_message {
+    public static function getInstance() {
+        $linebot = new reply_message;
+    
+        return $linebot;
+    }
     function setter($key, $value) {
         $this->$key = $value;
         return $this;
@@ -13,16 +18,25 @@ class reply_message {
 
     }
 
+    public static function init($chanelToken, $chanelSecret) {
+        $lineBot = reply_message::getInstance();
+        $lineBot->setChanelToken($chanelToken);
+        $lineBot->setChanelSecret($chanelSecret);
+
+        $lineBot->httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($lineBot->ChanelToken);
+        $lineBot->bot = new \LINE\LINEBot($lineBot->httpClient, ['channelSecret' => $lineBot->ChanelSecret]);
+
+        return $lineBot;
+    }
+
     function setChanelToken($chanelToken) {
         $this->setter('ChanelToken', $chanelToken);
-        $this->httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('fDlox1shrxTaCZJnFaNl55aVNDh/M1fxAL59kJ/a3ZI3ATi5EU1fu5jKJvLRQMGB0ffLFAzhQ6uOY7Jqy2MprwtWXr7pCbJ7fTfeuZ9CNHG/nHz+4RwyfccMyXeI8gas2XJSmoEK0DE9NGC5paKeZwdB04t89/1O/w1cDnyilFU=');
         
         return $this;
     }
 
     function setChanelSecret($chanelSecret) {
-        $this->setter('ChanelToken', $chanelSecret);
-        $this->bot = new \LINE\LINEBot($this->httpClient, ['channelSecret' => $chanelSecret]);
+        $this->setter('ChanelSecret', $chanelSecret);
         
         return $this;
     }
@@ -51,11 +65,9 @@ class reply_message {
     function send() {
         try {
             $this->response = $this->bot->pushMessage($this->userId, $this->textMessageBuilder);
-            // $this->log->create();
+            return $this->response;
         } catch (Exception $ex) {
-            echo $ex->getMessage();
-            // $this->setMessage();
-            // $this->send();
+            return 'Err code' . $ex->getCode() . ': ' . $ex->getMessage();
         }
     }
 }

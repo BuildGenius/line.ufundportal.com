@@ -16,6 +16,7 @@
     ],
     "require": {
         "linecorp/line-bot-sdk": "^3.6",
-        "peppeocchi/php-cron-scheduler": "^4.0"
+        "peppeocchi/php-cron-scheduler": "^4.0",
+        "rmccue/requests": "^2.0"
     }
 }

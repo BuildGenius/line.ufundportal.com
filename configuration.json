@@ -1,0 +1,12 @@
+{
+    "linebot": {
+        "ChannelToken": "c5tA1zdhW2A9P3yr3ZJiuZ6yFCQQFwI8aEXAgqrB1cPp+ZQcho2z+lHJzk9ewIar1eSyEPRVKrOKcyX7csuQ2ZzhOhwC0AjqTMu6GPwOZslz5kzAT7a20jo3lp6Vyfqmf4eu98f7Oz2mX8mDzNRBdQdB04t89/1O/w1cDnyilFU=",
+        "ChannelSecret": "78b0a1e077cedeeca4528184fe3bd933"
+    },
+    "SQLConnection": {
+        "IP": "192.168.43.203",
+        "Database": "HPCOM7",
+        "User": "sa",
+        "Password": "Com@7ktwoadmin###"
+    }
+}
